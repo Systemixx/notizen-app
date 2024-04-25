@@ -1,29 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Card from './Card';
+import Card from './components/Card';
+import { title } from 'process';
+import NotesCard from './components/Card';
 
 export default function App() {
 
-  console.log('Hallo Welt')
+  // Die App gibt das Grundgerüst der Anwendung vor
+  // Hier werden wir später viele Informationen speichern und an Komponenten weitergeben
+
+  const notes: {
+    title: string,
+    content: string,
+    categories: string[],
+    id: number
+  }[] = [
+      {
+        title: 'Überschrift 1',
+        content: 'Das ist ein langer Text',
+        categories: ['Büro', 'Haushalt'],
+        id: 1
+      }, {
+        title: 'Überschrift 2',
+        content: 'Das ist auch ein langer Text',
+        categories: ['Büro'],
+        id: 2
+      }, {
+        title: 'Überschrift 3',
+        content: 'Das ist ein besonders langer Text',
+        categories: ['Haushalt'],
+        id: 3
+      }, {
+        title: 'Überschrift 4',
+        content: 'Kurzer Text',
+        categories: [],
+        id: 4
+      }
+    ]
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Das ist eine coole App von uns. Weiter Infos gibt es auf Github oder unter der Website von Techstarter.
-        </p>
-        <a
-          className="App-link"
-          href="https://www.techstarter.de"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Klick hier um zur Techstarter-Website zu gelangen.
-        </a>
-        < Card />
-      </header>
-    </div>
+    <>
+      {
+        notes.map(note => <NotesCard
+          key={note.id}
+          title={note.title}
+          categories={note.categories}
+          content={note.content} />)
+      }
+    </>
   )
 }
