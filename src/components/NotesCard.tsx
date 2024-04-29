@@ -15,9 +15,9 @@ function NotesCard(props: Props) {
     <Card className='mb-1'>
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-        <Card.Text>
-          {props.content}
-        </Card.Text>
+        <Card.Text>{props.content}</Card.Text>
+        <Card.Text>User: {props.user}</Card.Text> {/* hinzugefügt */}
+        <Card.Text>Date: {props.date.toLocaleDateString()}</Card.Text> {/* hinzugefügt */}
         <Card.Subtitle className="mb-2 text-muted">{
           categories
         }</Card.Subtitle>

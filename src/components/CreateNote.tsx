@@ -28,9 +28,10 @@ function CreateNote(props: Props) {
             title,
             content,
             categories,
-            id
+            id,
+            user: 'defaultUser', // Hier setze den Benutzerwert entsprechend deiner Anforderungen
+            date: new Date()     // Hier setze das Datum entsprechend deiner Anforderungen
         });
-
     };
 
     return (
@@ -55,7 +56,6 @@ function CreateNote(props: Props) {
              </Card.Body>
          </Card>
       );
-
 }
 
 export default CreateNote;

@@ -2,6 +2,7 @@ import NotesCard from "./NotesCard";
 import { Note } from "../types/notes.type";
 import { Col, Container, Row } from "react-bootstrap";
 
+
 type Props = {
     notes: Note[],
     setNotes: React.Dispatch<React.SetStateAction<Note[]>>
@@ -21,7 +22,10 @@ function NotesList(props: Props){
                                 id={note.id}
                                 title={note.title}
                                 categories={note.categories}
-                                content={note.content} />
+                                content={note.content}
+                                user={note.user} // hinzugefügt
+                                date={note.date} // hinzugefügt
+                               />
                             </Col>
                     )}
                 </Row>
